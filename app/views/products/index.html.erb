@@ -1,0 +1,28 @@
+<h1>Este es el listado de productos</h1>
+
+
+
+<table>
+	<th>
+		<tr>
+			<td>Nombre</td>
+			<td>Categoria</td>
+			<td>Stock</td>
+			<td>Precio</td>
+			<td>Imagen</td>
+		</tr>
+	</th>
+
+	<% @products.each do |p| %>
+	<tr>
+		<td><%= p.name %></td>
+		<td><%= p.category.name %></td>
+		<td><%= p.stock %></td>
+		<td><%= p.price %></td>
+		<td><img src="<%= p.photo %>" alt="" class="preview_image"></td>
+	</tr>
+	<% end %>
+	
+</table>
+
+
