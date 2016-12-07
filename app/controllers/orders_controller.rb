@@ -4,7 +4,7 @@ class OrdersController < ApplicationController
   	@cart = current_user.carts.last
   	@product.orders.build(cart_id: @cart.id).save
   	flash[:notice] = "Se agregó un #{@product.name} al carro de compras..."
-  	redirect_to root_path
+    redirect_to root_path
   end
 
   def destroy

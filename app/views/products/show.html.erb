@@ -1,0 +1,21 @@
+<div class="row">
+	<div class="col-md-12">
+		<h3><%= @product.name %></h1>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-md-12">
+		<ul>
+		    <li>Precio del producto: <%= @product.price %></li>
+		    <li>Categoría del producto: <%= @product.category.name %></li>
+		    <li>Cantidad disponible: <%= @product.stock %></li>
+		    <li><img src="<%= @product.photo %>" alt="" class="preview_image"></li>
+		</ul>
+		<%= link_to 'Add to CART', product_orders_path(@product.id), class:'btn btn-success', method: :post %>
+	</div>
+</div>
+
+
+
+
