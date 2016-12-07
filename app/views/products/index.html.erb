@@ -15,7 +15,11 @@
 	<tbody>
 		<% @products.each do |p| %>
 			<tr>
-				<td><%= p.name %></td>
+				<td><%= p.name %>
+					<%= link_to product_path(p.id), class: "btn btn-default" do %>
+					    <i class="glyphicon glyphicon-search"></i>
+					<% end %>
+				</td>
 				<td><%= p.category.name %></td>
 				<td><%= p.stock %></td>
 				<td><%= p.price %></td>
