@@ -9,7 +9,7 @@ class PaymentsController < ApplicationController
   	end
   	@cart.total = @totalamount
 
-    if Payment.new(amount: @cart.total, cart_id: @cart).save
+    if Payment.new(amount: @cart.total, cart: @cart).save
 		flash[:notice] = "Se procesó el pago del carro #{@cart.id}..."
 	    redirect_to user_cart_path(@user.id,@cart.id)
     else

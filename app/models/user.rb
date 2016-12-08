@@ -9,6 +9,6 @@ class User < ApplicationRecord
   after_create :create_cart
 
   def create_cart
-  	self.carts.build(state: 'open',total: 0).save
+  	self.carts.build(state: 'open').save
   end
 end
