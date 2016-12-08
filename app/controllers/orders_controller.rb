@@ -2,8 +2,12 @@ class OrdersController < ApplicationController
   def create
   	@product = Product.find(params[:product_id])
   	@cart = current_user.carts.last
-  	@product.orders.build(cart_id: @cart.id).save
-  	flash[:notice] = "Se agregó un #{@product.name} al carro de compras..."
+    if @product.orders.build(cart_id: @cart.id).save
+      flash[:notice] = "Se agregó un #{@product.name} al carro de compras..."
+    else
+      flash[:notice] = "NO SE PUDO AGREGAR #{@product.name} al carro de compras..."
+    end
+    
     redirect_to root_path
   end
 
