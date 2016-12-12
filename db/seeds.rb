@@ -46,4 +46,4 @@
 
 # Category.find_by(name:'Telefonía').products.build(name:'OWN 3000 ENTEL', stock:280, price:29999, photo:'http://home.ripley.cl/store/Attachment/WOP/D191/2000357594526/2000357594526_2.jpg').save
 
-AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
+# AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')

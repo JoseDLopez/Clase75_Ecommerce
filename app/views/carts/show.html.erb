@@ -1,14 +1,19 @@
 <h1>Listado de productos en el carro</h1>
 <p>Total del carro: <%= @totalamount %> CLP</p>
 <p>Estado del carro: <%= @cart.state %></p>
-<%= link_to 'Generar PAGO', user_cart_payments_path(@user.id,@cart.id), class:'btn btn-info',  method: :post%>
+<% if @cart.state != "PAID" %>
+	<%= link_to 'Generar PAGO', user_cart_payments_path(@user.id,@cart.id), class:'btn btn-info',  method: :post%>
+<% end %>
+
 <table class="table table-striped table-condensed table-hover">
 	<thead>
 		<tr>
 			<th>Nombre</th>
 			<th>Categoria</th>
 			<th>Precio</th>
-			<th>Acción</th>
+			<% if @cart.state != "PAID" %>
+				<th>Acción</th>
+			<% end %>
 		</tr>
 	</thead>
 
@@ -18,7 +23,9 @@
 				<td><%= o.product.name %></td>
 				<td><%= o.product.category.name %></td>
 				<td><%= o.product.price %></td>
-				<td><%= link_to 'Quitar del carro', product_order_path(o.product.id,o.id), class:'btn btn-danger', method: :delete %></td>
+				<% if @cart.state != "PAID" %>
+					<td><%= link_to 'Quitar del carro', product_order_path(o.product.id,o.id), class:'btn btn-danger', method: :delete %></td>
+				<% end %>
 			</tr>
 		<% end %>
 	</tbody>	
