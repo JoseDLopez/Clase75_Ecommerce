@@ -8,7 +8,9 @@
 			<th>Stock</th>
 			<th>Precio</th>
 			<th>Imagen</th>
-			<th>Acción</th>
+			<% if user_signed_in? %>
+				th>Acción</th>
+			<% end %>
 		</tr>
 	</thead>
 
@@ -24,7 +26,9 @@
 				<td><%= p.stock %></td>
 				<td><%= p.price %></td>
 				<td><img src="<%= p.photo %>" alt="" class="preview_image"></td>
-				<td><%= link_to 'Add to CART', product_orders_path(p.id), class:'btn btn-success', method: :post %></td>
+				<% if user_signed_in? %>
+					<td><%= link_to 'Add to CART', product_orders_path(p.id), class:'btn btn-success', method: :post %></td>
+				<% end %>
 			</tr>
 		<% end %>
 	</tbody>
